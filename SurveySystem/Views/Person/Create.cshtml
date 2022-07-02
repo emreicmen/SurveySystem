@@ -1,0 +1,31 @@
+﻿
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">Person Adding Page</div>
+        <hr>
+        <form action="/Person/Create">
+            <div class="form-group">
+                <label for="input-1">Name</label>
+                <input type="text" class="form-control" name="NameSurname" id="input-1" placeholder="Type Name" maxlength="50" required>
+            </div>
+            <div class="form-group">
+                <label for="input-2">Code</label>
+                <input type="text" class="form-control" name="Code" id="input-2" placeholder="Type Code" maxlength="10" required>
+            </div>
+            <div class="form-group">
+                <label for="input-3">Password</label>
+                <input type="password" class="form-control" name="Password" id="input-3" placeholder="Type Password" maxlength="20" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-round btn-success px-5"><i class="icon-lock"></i>Register Person</button>
+            </div>
+        </form>
+    </div>
+</div>
+
