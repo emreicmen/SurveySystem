@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SurveySystem.Models.Person>
+﻿@model IEnumerable<SurveySystem.Models.Answer>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -11,10 +11,10 @@
         <div class="col-12 col-lg-6 col-xl-6">
             <div class="card bg-dark">
                 <div class="card-body">
-                    <a href="/Person/Create">
+                    <a href="/Answer/Create">
                         <div class="media">
                             <div class="media-body text-left">
-                                <h4 class="text-white">Add Person</h4>
+                                <h4 class="text-white">Add Answer</h4>
                                 <span class="text-white">Click for Add</span>
                             </div>
                             <div class="align-self-center"><span id="dash-chart-1"><canvas width="81" height="35" style="display: inline-block; width: 81px; height: 35px; vertical-align: top;"></canvas></span></div>
@@ -29,7 +29,7 @@
                     <div class="media">
                         <div class="media-body text-left">
                             <h4 class="text-white">@Model.Count()</h4>
-                            <span class="text-white">Total person count</span>
+                            <span class="text-white">Total answer count</span>
                         </div>
                         <div class="align-self-center"><span id="dash-chart-2"><canvas width="80" height="40" style="display: inline-block; width: 80px; height: 40px; vertical-align: top;"></canvas></span></div>
                     </div>
@@ -45,7 +45,8 @@
                     <tr class="bg-dark" style="color:white">
                         <td>Name Surname : </td>
                         <td>Code : </td>
-                        <td>Password : </td>
+                        <td>Score : </td>
+                        <td>Is Completed : </td>
                         <td>Created Date: </td>
                         <td>CreatedBy : </td>
                         <td>Operations : </td>
@@ -55,24 +56,22 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@item.NameSurname</td>
-                            <td>@item.Code</td>
-                            <td>@item.Password</td>
+                            <td>@item.PersonName</td>
+                            <td>@item.PersonCode</td>
+                            <td>@item.Score</td>
+                            @if (item.IsCompleted == true)
+                            {
+                                <td class="text-success">Completed</td>
+                            }
+                            else
+                            {
+                                <td class="text-danger">Not Completed</td>
+                            }
+
                             <td>@item.CreateDate</td>
                             <td>@item.CreateBy</td>
-                            <td class="d-flex justify-content-center">
-                                <a href="/Person/Edit/@item.Id" class="btn btn-dark text-white"><i class="fa fa fa-pencil"></i></a>
-
-                                <a class="btn btn-danger text-white" onclick="Delete(@item.Id)">
-                                    <i class="fa fa fa-trash-o text-white"></i>
-                                </a>
-                                <script>
-                                    function Delete(id) {
-                                        var link = "/Person/Delete/" + id;
-                                        jQuery("#modalLink").attr("href", link);
-                                        jQuery("#deleteperson").modal()
-                                    }
-                                </script>
+                            <td>
+                                <a href="/Answer/Detail/@item.Id" class="btn btn-dark text-white"><i class="fa fa fa-pencil"></i></a>
                             </td>
                         </tr>
                     }
@@ -106,22 +105,3 @@
     })(jQueryCalis);
 </script>
 
-<div class="modal fade" id="deleteperson">
-    <div class="modal-dialog">
-        <div class="modal-content border-danger">
-            <div class="modal-header bg-danger">
-                <h5 class="modal-title text-white"><i class="fa fa-star"></i> Deletion protocole</h5>
-                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>This documantation going to delete.Are you sure about this process?!</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                <a class="btn btn-danger" id="modalLink"><i class="fa fa-check-square-o"></i> Delete</a>
-            </div>
-        </div>
-    </div>
-</div>

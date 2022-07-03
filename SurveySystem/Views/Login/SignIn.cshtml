@@ -30,11 +30,11 @@
                         <img src="~/Content/assets/images/logo-icon.png" />
                     </div>
                     <div class="card-title text-uppercase text-center py-2 text-white">Sign In</div>
-                    <form class="color-form">
+                    <form class="color-form" action="/Login/SignIn" method="post">
                         <div class="form-group">
                             <div class="position-relative has-icon-left">
                                 <label for="exampleInputUsername" class="sr-only">Username</label>
-                                <input type="text" id="exampleInputUsername" class="form-control" placeholder="Username">
+                                <input type="text" id="exampleInputUsername" name="Code" class="form-control" placeholder="Code" required>
                                 <div class="form-control-position">
                                     <i class="icon-user"></i>
                                 </div>
@@ -43,15 +43,29 @@
                         <div class="form-group">
                             <div class="position-relative has-icon-left">
                                 <label for="exampleInputPassword" class="sr-only">Password</label>
-                                <input type="password" id="exampleInputPassword" class="form-control" placeholder="Password">
+                                <input type="password" id="exampleInputPassword" name="Password" class="form-control" placeholder="Password" required>
                                 <div class="form-control-position">
                                     <i class="icon-lock"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="button" class="btn btn-danger btn-block waves-effect waves-light">Sign In</button>
+                            <button type="submit" class="btn btn-danger btn-block waves-effect waves-light">Sign In</button>
                         </div>
+
+                        @if (ViewBag.Error != null)
+                        {
+
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <div class="alert-icon">
+                                    <i class="icon-close"></i>
+                                </div>
+                                <div class="alert-message">
+                                    <span><strong>Danger!</strong> @ViewBag.Error </span>
+                                </div>
+                            </div>
+                        }
                     </form>
                 </div>
             </div>
