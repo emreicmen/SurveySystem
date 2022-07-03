@@ -9,9 +9,7 @@ namespace SurveySystem.Models
     {
         public string Code { get; set; }
         public string NameSurname { get; set; }
-
         public string Question { get; set; }
-
         public string Answer { get; set; }
     }
 }

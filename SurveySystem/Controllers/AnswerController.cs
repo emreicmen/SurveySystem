@@ -113,7 +113,12 @@ namespace SurveySystem.Controllers
                 db.AnswerLine.Add(answerLine);
                 db.SaveChanges();
             }
+        }
 
+        public ActionResult Detail(int? id)
+        {
+            var model = db.AnswerLine.Where(m => m.AnswerId == id).ToList();
+            return View(model);
         }
     }
 }

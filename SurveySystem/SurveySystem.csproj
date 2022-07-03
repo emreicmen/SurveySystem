@@ -345,8 +345,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Person\About.cshtml" />
-    <Content Include="Views\Person\Contact.cshtml" />
     <Content Include="Views\Person\Index.cshtml" />
     <Content Include="Views\Login\SignIn.cshtml" />
     <Content Include="Views\Shared\_Topbar.cshtml" />
@@ -358,10 +356,10 @@
     <Content Include="Views\Question\Edit.cshtml" />
     <Content Include="Views\Answer\Create.cshtml" />
     <Content Include="Views\Answer\Index.cshtml" />
+    <Content Include="Views\Answer\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

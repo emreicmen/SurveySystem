@@ -8,12 +8,12 @@
 
 <div class="card">
     <div class="card-body">
-        <div class="card-title text-center">Anket Cevaplama Sayfası</div>
+        <div class="card-title text-center">Answering Page</div>
         <hr>
         @using (Html.BeginForm("Create", "Answer"))
         {
             <div class="form-group">
-                @Html.DropDownList("Code", (SelectList)ViewBag.Person, "Lütfen Kişi Seçiniz", new { @class = "form-control" })
+                @Html.DropDownList("Code", (SelectList)ViewBag.Person, "Please select a person", new { @class = "form-control" })
             </div>
 
             foreach (var item in Model)
@@ -22,7 +22,6 @@
                 <span style="font-weight:bold">@number)</span>
                 @item.QuestionLine
                 <br /><br />
-
                 <div class="icheck-material-primary icheck-inline">
                     <input type="radio" id="Id_@item.Id" name="Answer_@item.Id" class="radio_@item.Id" value="@SurveySystem.Constants.AnswerType.Yes">
                     <label for="Id_@item.Id">@SurveySystem.Constants.AnswerType.Yes</label>

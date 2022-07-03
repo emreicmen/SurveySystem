@@ -22,6 +22,25 @@
                 <input type="password" class="form-control" name="Password" id="input-3" value="@Model.Password" placeholder="Type Password" maxlength="20" required>
             </div>
 
+            <label for="input-3">Is Admin ?</label>
+            <div class="icheck-material-primary icheck-inline">
+                @if (Model.IsAdmin == true)
+                {
+                    <input type="radio" id="1" name="Answer" value="@SurveySystem.Constants.AnswerType.Yes" checked>
+                    <label for="1">@SurveySystem.Constants.AnswerType.Yes</label>
+
+                    <input type="radio" id="2" name="Answer" value="@SurveySystem.Constants.AnswerType.No">
+                    <label for="2">@SurveySystem.Constants.AnswerType.No</label>
+                }
+                else
+                {
+                    <input type="radio" id="1" name="Answer" value="@SurveySystem.Constants.AnswerType.Yes" >
+                    <label for="1">@SurveySystem.Constants.AnswerType.Yes</label>
+
+                    <input type="radio" id="2" name="Answer" value="@SurveySystem.Constants.AnswerType.No" checked>
+                    <label for="2">@SurveySystem.Constants.AnswerType.No</label>
+                }
+            </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-round btn-success px-5"><i class="icon-lock"></i>Edit Person</button>
             </div>
